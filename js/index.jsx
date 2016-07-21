@@ -1,21 +1,30 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var pokemonList = [];
+var pokemonList = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise'];
 
 var SearchBarContainer = React.createClass({
   getInitialState: function () {
     return {
       output: [],
-      pokemonLib: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard', 'squirtle', 'wartortle', 'blastoise']
     }
   },
-  onAddInput: function (event) {
-    var value = event.target.value;
-    var tempLib = this.state.pokemonLib.filter(function (value) {
 
-    })
+  onAddInput: function (event) {
+    var value = event.target.value.toLowerCase();
+    var tempLib = this.props.searchList.filter(function (item) {
+      var pokeMatch = new RegExp("^" + value);
+        if (item.match(pokeMatch)) {
+          console.log(true);
+          return true;
+        }else {
+          console.log(false);
+          return false;
+        }
+      });
+    console.log(tempLib, 'tempLib');
     },
+
   render: function () {
     return (
       <SearchBar addInput={this.onAddInput}/>
@@ -35,5 +44,5 @@ var SearchBar = React.createClass({
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  ReactDOM.render(<SearchBarContainer />, document.getElementById('app'));
+  ReactDOM.render(<SearchBarContainer searchList={pokemonList}/>, document.getElementById('app'));
 });
