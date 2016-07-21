@@ -65,7 +65,7 @@
 	    if (value.length > 0) {
 	      var tempLib = this.props.searchList.filter(function (item) {
 	        item = item.toLowerCase();
-	        var pokeMatch = new RegExp('^' + value);
+	        var pokeMatch = new RegExp(value);
 	        if (item.match(pokeMatch)) {
 	          return true;
 	        } else {
@@ -90,7 +90,6 @@
 	
 	  render: function render() {
 	    var pokeComponents = [];
-	    console.log(this.props.output);
 	    this.props.output.forEach(function (pokeName) {
 	      var pokeUrl = pokeName.replace(' ', '-');
 	      pokeComponents.push(React.createElement(Pokemon, { name: pokeName, url: pokeUrl }));
