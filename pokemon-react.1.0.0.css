@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+header {
+  background: url('pokemon.png') no-repeat center;
+  background-size: 50%;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  height: 125px;
+}
+.pokeInput {
+  width: 35rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.pokeInput input {
+  width: 20rem;
+  border: 1px solid grey;
+  border-radius: 0.25em;
+  text-align: center;
+}
+.pokeInput ul {
+  padding-left: 35%;
+  text-align: left;
+}
+.pokeInput ul li {
+  list-style-type: none;
+  padding-bottom: 0.25em;
+}
+.pokeInput ul li a {
+  text-decoration: none;
+  color: grey;
+}
+/*# sourceMappingURL=pokemon-react.1.0.0.css.map */
