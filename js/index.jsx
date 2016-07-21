@@ -14,32 +14,48 @@ var SearchBarContainer = React.createClass({
     var value = event.target.value.toLowerCase();
     var tempLib = this.props.searchList.filter(function (item) {
       var pokeMatch = new RegExp("^" + value);
+
         if (item.match(pokeMatch)) {
-          console.log(true);
           return true;
         }else {
-          console.log(false);
           return false;
         }
       });
-    console.log(tempLib, 'tempLib');
-    },
+
+      this.setState({ 
+          output: tempLib
+      });
+  },
 
   render: function () {
     return (
-      <SearchBar addInput={this.onAddInput}/>
+      <SearchBar addInput={this.onAddInput} output={this.state.output}/>
     );
   }
 });
 
 var SearchBar = React.createClass({
   render: function () {
+    var pokeComponents = [];
+    this.props.output.forEach(
+      function(pokeName) {
+        pokeComponents.push(<Pokemon name={pokeName}/>);
+      }
+    );
     return (
       <div>
         <input type="text" onChange={this.props.addInput} />
-        <div className="output">{this.props.output}</div>
+        <ul className="output">{pokeComponents}</ul>
       </div>
     );
+  }
+});
+
+var Pokemon = React.createClass({
+  render: function () {
+    return (
+      <li className="output-item"><a href={"https://pokemondb.net/pokedex/" + this.props.name}>{this.props.name}</a></li>
+      );
   }
 });
 
