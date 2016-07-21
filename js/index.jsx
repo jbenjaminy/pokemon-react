@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var pokemonList = [];
+
 var SearchBarContainer = createClass({
   getInitialState: function () {
     return {
