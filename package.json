@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "http-server build/",
     "mkdir": "mkdir -p build",
-    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js",
-    "watch": "npm run watch:html & npm run watch:css & npm run watch:js",
+    "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:css && npm run build:js && npm run build:img",
+    "watch": "npm run watch:html & npm run watch:css & npm run watch:js & npm run watch:img",
     "clean": "rm -rf build",
     "build:html": "npm run clean:html && cp index.html build/",
     "watch:html": "npm run build:html && chokidar index.html -c 'npm run build:html'",
@@ -18,7 +18,10 @@
     "clean:css": "rm -f build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
     "build:js": "npm run clean:js && webpack",
     "watch:js": "npm run build:js && webpack --watch",
-    "clean:js": "rm -f build/$npm_package_name.$npm_package_version.js build/$npm_package_name.$npm_package_version.js.map"
+    "clean:js": "rm -f build/$npm_package_name.$npm_package_version.js build/$npm_package_name.$npm_package_version.js.map",
+    "build:img": "npm run clean:img && cp -r img/ build/",
+    "clean:img": "rm -rf build/img/",
+    "watch:img": "npm run build:img && webpack --watch"
   },
   "repository": {
     "type": "git",
