@@ -15,7 +15,7 @@ var SearchBarContainer = React.createClass({
     if (value.length > 0) {
       var tempLib = this.props.searchList.filter(function (item) {
         item = item.toLowerCase();
-        var pokeMatch = new RegExp('^' + value);
+        var pokeMatch = new RegExp(value);
         if (item.match(pokeMatch)) {
           return true;
         } else {
@@ -41,7 +41,6 @@ var SearchBarContainer = React.createClass({
 var SearchBar = React.createClass({
   render: function () {
     var pokeComponents = [];
-    console.log(this.props.output)
     this.props.output.forEach(function(pokeName) {
       var pokeUrl = pokeName.replace(' ', '-');
       pokeComponents.push(<Pokemon name={pokeName} url={pokeUrl}/>);
