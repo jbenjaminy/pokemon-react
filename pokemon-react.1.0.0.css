@@ -4,13 +4,13 @@
 }
 header {
   background: url('pokemon.png') no-repeat center;
-  background-size: 50%;
+  background-size: 25rem;
   padding-top: 80px;
   padding-bottom: 20px;
   height: 125px;
 }
 .pokeInput {
-  width: 35rem;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
 }
